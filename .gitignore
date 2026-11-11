@@ -1,0 +1,38 @@
+# --- Build & Compiler Outputs ---
+build/
+bin/
+out/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.o
+*.obj
+*.a
+*.lib
+*.pdb
+*.ilk
+*.exp
+*.so
+*.dylib
+*.dll
+*.framework
+.sconsign.dblite
+
+# --- IDEs ---
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Godot Specific ---
+.godot/
+*.translation
+export_presets.cfg
+
+# Ignore compiled plugin binaries in the demo/addons folder during local dev
+# Remove these lines if you distribute compiled binaries directly via Git
+addons/*/bin/*.dll
+addons/*/bin/*.so
+addons/*/bin/*.dylib
+addons/*/bin/*.framework
