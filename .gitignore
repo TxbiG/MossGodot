@@ -1,38 +1,34 @@
-# --- Build & Compiler Outputs ---
+# CMake
 build/
-bin/
-out/
+build-*/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-*.o
-*.obj
-*.a
-*.lib
-*.pdb
-*.ilk
-*.exp
-*.so
-*.dylib
-*.dll
-*.framework
-.sconsign.dblite
+compile_commands.json
 
-# --- IDEs ---
-.vs/
+# Generated native libraries
+addons/moss_godot/bin/*
+!addons/moss_godot/bin/.gitkeep
+
+# IDEs
 .vscode/
 .idea/
-*.swp
-*.swo
+.vs/
 
-# --- Godot Specific ---
-.godot/
-*.translation
-export_presets.cfg
+# OS
+.DS_Store
+Thumbs.db
 
-# Ignore compiled plugin binaries in the demo/addons folder during local dev
-# Remove these lines if you distribute compiled binaries directly via Git
-addons/*/bin/*.dll
-addons/*/bin/*.so
-addons/*/bin/*.dylib
-addons/*/bin/*.framework
+# Build outputs
+*.obj
+*.o
+*.lib
+*.a
+*.dll
+*.so
+*.dylib
+*.pdb
+
+# Python
+__pycache__/
+*.pyc
