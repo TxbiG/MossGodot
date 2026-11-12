@@ -1,0 +1,54 @@
+name: Sanitizers
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sanitizers:
+    name: Clang ASan and UBSan
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure sanitized build
+        env:
+          CC: clang
+          CXX: clang++
+        run: |
+          cmake -S . -B build-sanitized \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DGODOTCPP_API_VERSION=4.7 \
+            -DGODOTCPP_TARGET=template_debug \
+            -DGODOTCPP_PRECISION=single \
+            -DMOSS_GODOT_ENABLE_SANITIZERS=ON
+
+      - name: Compile with sanitizers
+        run: cmake --build build-sanitized --parallel 2
+
+      - name: Verify output
+        run: |
+          find addons/moss_godot/bin -maxdepth 1 -type f
+          test -n "$(find addons/moss_godot/bin -maxdepth 1 -type f)"
+
+      - name: Upload sanitized build
+        uses: actions/upload-artifact@v4
+        with:
+          name: MossGodot-Sanitized-Linux
+          path: addons/moss_godot/bin/*
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Report coverage limitation
+        run: |
+          echo "MossGodot native code was compiled with ASan and UBSan."
+          echo "Runtime physics and audio backend tests are not yet implemented."
