@@ -57,14 +57,6 @@ cmake -S . -B build
 cmake --build build --config Release
 ```
 
-See the [Getting Started](docs/GETTING_STARTED.md) documentation for further instructions.
-
-## Related Projects
-
-- [Moss Framework](https://github.com/TxbiG/Moss)
-- [Godot Engine](https://github.com/godotengine/godot)
-- [godot-cpp](https://github.com/godotengine/godot-cpp)
-
 ## License
 
 Distributed under the [MIT License](LICENSE).
