@@ -1,3 +1,4 @@
+[![Build](https://github.com/TxbiG/MossGodot/actions/workflows/build.yml/badge.svg)](https://github.com/TxbiG/MossGodot/actions/workflows/build.yml)
 # MossGodot
 
 **Native integration between the [Moss Framework](https://github.com/TxbiG/Moss) and [Godot Engine](https://godotengine.org/), built with C++ and GDExtension.**
