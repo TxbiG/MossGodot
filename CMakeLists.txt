@@ -14,6 +14,9 @@ set(GODOTCPP_PRECISION "single" CACHE STRING "Godot floating point precision")
 option(MOSS_GODOT_ENABLE_SANITIZERS "Enable AddressSanitizer and UndefinedBehaviorSanitizer" OFF)
 option(MOSS_GODOT_WARNINGS_AS_ERRORS "Treat MossGodot warnings as errors" OFF)
 
+set(GODOTCPP_USE_ASAN ON CACHE BOOL "" FORCE)
+set(GODOTCPP_USE_UBSAN ON CACHE BOOL "" FORCE)
+
 # Produce a universal macOS library by default.
 if(APPLE AND NOT DEFINED CMAKE_OSX_ARCHITECTURES)
     set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "macOS target architectures" FORCE)
